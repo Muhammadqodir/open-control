@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:opencontrol/constants/constants_colors.dart';
+import 'package:opencontrol/screens/chat_screen.dart';
 import 'package:opencontrol/widgets/primary_card.dart';
 import 'package:opencontrol/widgets/recent_user_card.dart';
 import 'package:opencontrol/widgets/text_field_home_page.dart';
@@ -75,14 +76,21 @@ class HomePageScreen extends StatelessWidget {
               const SizedBox(
                 height: 19,
               ),
-              const RecentUserCard(
-                image: AssetImage(
-                  'assets/images/user2.png',
+              GestureDetector(
+                onTap: () {
+                  Route route =
+                      MaterialPageRoute(builder: (context) => ChatScreen());
+                  Navigator.push(context, route);
+                },
+                child: const RecentUserCard(
+                  image: AssetImage(
+                    'assets/images/user2.png',
+                  ),
+                  name: 'Alexander',
+                  text: 'Hey, what`s up?',
+                  time: '4 min',
+                  countMessage: 5,
                 ),
-                name: 'Alexander',
-                text: 'Hey, what`s up?',
-                time: '4 min',
-                countMessage: 5,
               ),
             ],
           ),

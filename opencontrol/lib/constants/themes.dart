@@ -8,6 +8,8 @@ const homeMediumColor = Color(0xff121111);
 const kSecondaryColor = Color(0xffFEE6E7);
 const textFieldBackground = Color(0xff1F1F1F);
 
+const kDefaultPadding = 20.0;
+
 BoxShadow shadow = BoxShadow(
   color: Colors.grey.withOpacity(0.2),
   spreadRadius: 0.4,
