@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:opencontrol/constants/constants_colors.dart';
+import 'package:opencontrol/widgets/text_field_home_page.dart';
+import '../constants/themes.dart';
 
 class HomePageScreen extends StatelessWidget {
   const HomePageScreen({super.key});
@@ -14,22 +16,24 @@ class HomePageScreen extends StatelessWidget {
           children: [
             Row(
               children: [
-                const Text(
+                Text(
                   'Messages',
-                  style: TextStyle(
-                    color: textPrimaryColor,
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
                 Expanded(child: Container()),
-                IconButton(
-                  color: textPrimaryColor,
-                  iconSize: 28,
-                  onPressed: () {},
-                  icon: const Icon(Icons.settings),
-                )
+                const Icon(
+                  Icons.settings,
+                  color: textLargeColor,
+                  size: 25,
+                ),
               ],
+            ),
+            const SizedBox(
+              height: 24,
+            ),
+            const SizedBox(
+              height: 48,
+              child: TextFieldHomePage(),
             )
           ],
         ),

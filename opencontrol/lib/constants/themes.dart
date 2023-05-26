@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 const primaryColor = Color(0xFFFF69AE);
 const colorAccent = Color(0xFFE1F2F0);
 const lightGray = Color(0xFFcccccc);
+const textLargeColor = Color(0xff4B4A4C);
+const homeMediumColor = Color(0xff121111);
+const kSecondaryColor = Color(0xffFEE6E7);
+const textFieldBackground = Color(0xff1F1F1F);
 
 BoxShadow shadow = BoxShadow(
   color: Colors.grey.withOpacity(0.2),
@@ -39,13 +43,13 @@ ThemeData lightTheme = ThemeData(
     ),
     titleLarge: TextStyle(
       fontFamily: "MontserratBold",
-      color: Colors.black87,
-      fontSize: 20,
+      color: textLargeColor,
+      fontSize: 28,
     ),
     titleMedium: TextStyle(
       fontWeight: FontWeight.bold,
       color: Colors.black87,
-      fontSize: 16,
+      fontSize: 14.3,
     ),
     titleSmall: TextStyle(
       color: Colors.black87,
