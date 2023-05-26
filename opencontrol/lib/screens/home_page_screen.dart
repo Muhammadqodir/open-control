@@ -1,9 +1,11 @@
-import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:opencontrol/constants/constants_colors.dart';
+import 'package:opencontrol/widgets/primary_card.dart';
+import 'package:opencontrol/widgets/recent_user_card.dart';
 import 'package:opencontrol/widgets/text_field_home_page.dart';
 import '../constants/themes.dart';
-import '../widgets/user_card.dart';
+import '../widgets/bottom_navigation.dart';
+import '../widgets/active_user_card.dart';
 
 class HomePageScreen extends StatelessWidget {
   const HomePageScreen({super.key});
@@ -21,48 +23,9 @@ class HomePageScreen extends StatelessWidget {
           ])),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        bottomNavigationBar: FloatingNavbar(
-          borderRadius: 55,
-          padding: const EdgeInsets.symmetric(vertical: 15),
-          backgroundColor: textFieldBackground,
-          selectedBackgroundColor: textFieldBackground,
-          selectedItemColor: Color(0xff7C01F6),
-          unselectedItemColor: Color(0xff4D4C4E),
-          onTap: (int val) {
-            //returns tab id which is user tapped
-          },
-          currentIndex: 0,
-          items: [
-            FloatingNavbarItem(
-                customWidget: ImageIcon(
-              AssetImage('assets/icons/settings.png'),
-              color: Colors.grey,
-            )),
-            FloatingNavbarItem(
-              customWidget: ImageIcon(
-                AssetImage('assets/icons/phone.png'),
-                size: 24,
-                color: Colors.grey,
-              ),
-            ),
-            FloatingNavbarItem(
-              customWidget: ImageIcon(
-                AssetImage('assets/icons/camera.png'),
-                size: 24,
-                color: Colors.grey,
-              ),
-            ),
-            FloatingNavbarItem(
-              customWidget: ImageIcon(
-                AssetImage('assets/icons/settings.png'),
-                size: 24,
-                color: Colors.grey,
-              ),
-            ),
-          ],
-        ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 35),
+        bottomNavigationBar: const BottomNavigation(),
+        body: SafeArea(
+          minimum: const EdgeInsets.symmetric(horizontal: 30, vertical: 35),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -87,55 +50,39 @@ class HomePageScreen extends StatelessWidget {
                 height: 48,
                 child: TextFieldHomePage(),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
-              Container(
-                width: 140,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 11,
-                  vertical: 6.2,
-                ),
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.centerLeft,
-                      end: Alignment.topRight,
-                      colors: [
-                        Color(0xff7C01F6),
-                        Color(0xffB66DFF),
-                      ]),
-                  borderRadius: BorderRadius.circular(28),
-                ),
-                child: Row(
-                  children: [
-                    Text(
-                      'Currently Active',
-                      style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600),
-                    ),
-                    Expanded(
-                      child: Container(),
-                    ),
-                    Container(
-                      width: 9,
-                      height: 9,
-                      decoration: BoxDecoration(
-                        color: Color.fromARGB(235, 0, 255, 132),
-                        borderRadius: BorderRadius.circular(50),
-                      ),
-                    ),
-                  ],
-                ),
+              const PrimaryCard(
+                text: 'Currently Active',
+                icon: Icons.ac_unit,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 13,
               ),
-              UserCard(
+              const ActiveUserCard(
                 name: 'Ethan',
                 image: NetworkImage(
                     'https://mrrk.ru/wp-content/uploads/2022/07/CUtAw2xa.jpg'),
+              ),
+              const SizedBox(
+                height: 26,
+              ),
+              const PrimaryCard(
+                text: 'Recents',
+                icon: Icons.refresh,
+              ),
+              const SizedBox(
+                height: 19,
+              ),
+              const RecentUserCard(
+                image: AssetImage(
+                  'assets/images/user2.png',
+                ),
+                name: 'Alexander',
+                text: 'Hey, what`s up?',
+                time: '4 min',
+                countMessage: 5,
               ),
             ],
           ),
