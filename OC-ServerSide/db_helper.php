@@ -30,7 +30,7 @@ class DBHelper
       return "undefined";
     }
   }
-  
+
   function updateField($field, $val)
   {
     $sql = "UPDATE fields SET value='$val' WHERE name='$field'";
@@ -41,19 +41,32 @@ class DBHelper
     }
   }
 
-  function register($phone)
+  function register($name, $phone, $owner, $password, $type)
   {
-    $sql = "SELECT * FROM users WHERE phone = '$phone'";
+    $sql = "SELECT * FROM businesses WHERE phone = '$phone'";
+    if ($result = $this->mysqli->query($sql)) {
+      $row = $result->fetch_assoc();
+      if ($row != null && $row != false) {
+        return "already";
+      } else {
+        if ($this->newBusiness($name, $phone, $owner, $password, $type)) {
+          return $this->login($phone, $password);
+        }
+      }
+    } else {
+      return "already";
+    }
+  }
+
+  function login($phone, $password)
+  {
+    $sql = "SELECT * FROM businesses WHERE phone = '$phone' AND password_hash = '$password'";
     if ($result = $this->mysqli->query($sql)) {
       $row = $result->fetch_assoc();
       if ($row != null && $row != false) {
         return $row;
       } else {
-        if ($this->newUser($phone)) {
-          return $this->register($phone);
-        } else {
-          return "undefined";
-        }
+        return "undefined";
       }
     } else {
       return "undefined";
@@ -71,16 +84,22 @@ class DBHelper
     return $randomString;
   }
 
-  function newUser($phone)
+  function newBusiness($name, $phone, $owner, $password, $type)
   {
     $token = $this->generateToken(16);
-    $sql = "INSERT INTO users (phone, fullName, gender, birth_day, token) VALUES ('$phone', 'undefined', 'undefined', 'undefined', '$token')";
+    $date = $this->getCurrentDate();
+    $sql = "INSERT INTO `businesses` (`id`, `name`, `owner`, `phone`, `password_hash`, `reg_date`, `type`, `token`)
+            VALUES (NULL, '$name', '$owner', '$phone', '$password', '$date', '$type', '$token');";
 
     if ($this->mysqli->query($sql) === TRUE) {
       return true;
     } else {
       return false;
     }
+  }
+
+  function getCurrentDate(){
+    return date("H:i:s d-m-Y");
   }
 
   function closeConnection()
