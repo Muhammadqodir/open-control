@@ -124,14 +124,16 @@ class RegisterPageScreen extends StatelessWidget {
                         text: 'Регистрация',
                       ),
                       const SizedBox(
-                        height: 15,
+                        height: 12,
                       ),
                       OnTapScaleAndFade(
                         onTap: () {
-                          Route route = CupertinoPageRoute(
-                            builder: (context) => LoginPageScreen(),
+                          Navigator.pushReplacement(
+                            context,
+                            CupertinoPageRoute(
+                              builder: (context) => LoginPageScreen(),
+                            ),
                           );
-                          Navigator.pushReplacement(context, route);
                         },
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 12),

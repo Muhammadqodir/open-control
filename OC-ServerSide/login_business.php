@@ -22,7 +22,8 @@ if (isset($_POST["phone"]) && isset($_POST["password"])) {
     $res["message"] = "Неверный логин или пароль";
   }
 } else {
-  $res["message"] = "Введите логин или пароль";
+  $res["data"] = $_POST;
+  $res["message"] = "Введите логин и пароль";
 }
 
 echo json_encode($res);

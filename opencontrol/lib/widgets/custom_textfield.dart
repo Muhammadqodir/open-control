@@ -5,7 +5,7 @@ class CustomTextField extends StatelessWidget {
   final String hintText;
   final MaskTextInputFormatter? maskTextInputFormatter;
   final TextInputType textInputType;
-  final isPassword;
+  final bool isPassword;
   final TextEditingController controller;
   const CustomTextField({
     super.key,

@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:opencontrol/api.dart';
 import 'package:opencontrol/constants/constants_colors.dart';
+import 'package:opencontrol/dialogs.dart';
+import 'package:opencontrol/models/business.dart';
 import 'package:opencontrol/screens/authorization/register_page_screen.dart';
-import 'package:opencontrol/screens/home%20page/home_page_screen.dart';
 import 'package:opencontrol/widgets/custom_textfield.dart';
 import 'package:opencontrol/widgets/primary_button.dart';
 import '../../widgets/on_tap_scale_and_fade.dart';
@@ -13,6 +15,18 @@ class LoginPageScreen extends StatelessWidget {
 
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+  Future<void> login(BuildContext context) async {
+    String phone = phoneController.text;
+    String password = passwordController.text;
+    print(phone);
+    Result<Business> res = await Api("").login(phone, password);
+    if(res.isSuccess){
+      Dialogs.showAlertDialog(context, "Success", res.data!.toString());
+    }else{
+      Dialogs.showAlertDialog(context, "Ошибка", res.message);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,17 +76,19 @@ class LoginPageScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 20),
                       PrimaryButton(
-                        onTap: () {
-                          Route route = CupertinoPageRoute(
-                              builder: (context) => const HomePageScreen());
-                          Navigator.push(context, route);
+                        onTap: () async {
+                          await login(context);
                         },
                         text: 'Вход',
+                      ),
+                      const SizedBox(
+                        height: 12,
                       ),
                       OnTapScaleAndFade(
                         onTap: () {
                           Route route = CupertinoPageRoute(
-                              builder: (context) => RegisterPageScreen());
+                            builder: (context) => RegisterPageScreen(),
+                          );
                           Navigator.push(context, route);
                         },
                         child: Padding(
