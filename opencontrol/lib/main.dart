@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:opencontrol/screens/authorization/login_page_screen.dart';
-import 'package:opencontrol/screens/authorization/register_page_screen.dart';
 import 'package:opencontrol/screens/chat/chat_screen.dart';
 import 'package:opencontrol/themes.dart';
 
@@ -19,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: ThemeMode.dark,
-      home: const RegisterPageScreen(),
+      home: const ChatScreen(),
     );
   }
 }
