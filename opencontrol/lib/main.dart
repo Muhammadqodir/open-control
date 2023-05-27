@@ -1,18 +1,25 @@
 import 'package:flutter/material.dart';
-import 'screens/home_page_screen.dart';
+import 'package:opencontrol/screens/authorization/login_page_screen.dart';
+import 'package:opencontrol/screens/authorization/register_page_screen.dart';
+import 'package:opencontrol/screens/chat/chat_screen.dart';
+import 'package:opencontrol/themes.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({key});
+  const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePageScreen(),
+      debugShowCheckedModeBanner: false,
+      theme: lightTheme,
+      darkTheme: darkTheme,
+      themeMode: ThemeMode.dark,
+      home: const RegisterPageScreen(),
     );
   }
 }

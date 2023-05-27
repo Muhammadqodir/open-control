@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
-const primaryColor = Color(0xFFFF69AE);
-const colorAccent = Color(0xFFE1F2F0);
-const lightGray = Color(0xFFcccccc);
+import 'constants/constants_colors.dart';
+
+const primaryColor = Color(0xFF830EF7);
+const textColorLight = Color(0xFF444444);
+const textColorDark = Color(0xFFFFFFFF);
 
 BoxShadow shadow = BoxShadow(
   color: Colors.grey.withOpacity(0.2),
@@ -10,6 +12,7 @@ BoxShadow shadow = BoxShadow(
   blurRadius: 1,
   offset: const Offset(0, 1),
 );
+
 ThemeData lightTheme = ThemeData(
   tabBarTheme: const TabBarTheme(
     indicator: UnderlineTabIndicator(
@@ -21,51 +24,37 @@ ThemeData lightTheme = ThemeData(
   ),
   brightness: Brightness.light,
   primaryColor: primaryColor,
-  secondaryHeaderColor: colorAccent,
-  dividerColor: lightGray,
+  hintColor: textColorLight.withAlpha(180),
+  cardColor: const Color(0xFFC8C8C8),
+  dividerColor: Colors.grey,
   fontFamily: 'Montserrat',
   textTheme: const TextTheme(
     bodySmall: TextStyle(
-      color: Colors.black87,
-      fontSize: 12,
+      color: textColorLight,
+      fontSize: textSizeSmall,
     ),
     bodyMedium: TextStyle(
-      color: Colors.black87,
-      fontSize: 16,
+      color: textColorLight,
+      fontSize: textSizeMedium,
     ),
     bodyLarge: TextStyle(
-      color: Colors.black87,
-      fontSize: 20,
+      color: textColorLight,
+      fontSize: textSizeLange,
     ),
     titleLarge: TextStyle(
       fontFamily: "MontserratBold",
-      color: Colors.black87,
-      fontSize: 20,
+      color: textColorLight,
+      fontSize: textSizeLange,
     ),
     titleMedium: TextStyle(
-      fontWeight: FontWeight.bold,
-      color: Colors.black87,
-      fontSize: 16,
+      fontFamily: "MontserratBold",
+      color: textColorLight,
+      fontSize: textSizeMedium,
     ),
     titleSmall: TextStyle(
-      color: Colors.black87,
-      fontWeight: FontWeight.bold,
-      fontSize: 12,
-    ),
-    headlineSmall: TextStyle(
-      color: Colors.white,
-      fontWeight: FontWeight.w400,
-      fontSize: 12,
-    ),
-    headlineMedium: TextStyle(
-      color: Colors.white,
-      fontWeight: FontWeight.w400,
-      fontSize: 16,
-    ),
-    headlineLarge: TextStyle(
-      color: Colors.white,
-      fontWeight: FontWeight.bold,
-      fontSize: 24,
+      color: textColorLight,
+      fontFamily: "MontserratBold",
+      fontSize: textSizeSmall,
     ),
   ),
   scaffoldBackgroundColor: Colors.white,
@@ -87,62 +76,47 @@ ThemeData darkTheme = ThemeData(
       ),
     ),
   ),
-  brightness: Brightness.dark,
+  brightness: Brightness.light,
   primaryColor: primaryColor,
-  secondaryHeaderColor: const Color(0xFF1E1E1E),
-  dividerColor: const Color(0xFF515151),
+  hintColor: textColorDark.withAlpha(180),
+  cardColor: const Color(0xFF1F1F1F),
+  dividerColor: Colors.grey,
   fontFamily: 'Montserrat',
   textTheme: const TextTheme(
     bodySmall: TextStyle(
-      color: Colors.white,
-      fontSize: 12,
+      color: textColorDark,
+      fontSize: textSizeSmall,
     ),
     bodyMedium: TextStyle(
-      color: Colors.white,
-      fontSize: 16,
+      color: textColorDark,
+      fontSize: textSizeMedium,
     ),
     bodyLarge: TextStyle(
-      color: Colors.white,
-      fontSize: 20,
+      color: textColorDark,
+      fontSize: textSizeLange,
     ),
     titleLarge: TextStyle(
       fontFamily: "MontserratBold",
-      color: Colors.white,
-      fontWeight: FontWeight.bold,
-      fontSize: 16,
+      color: textColorDark,
+      fontSize: textSizeLange,
     ),
     titleMedium: TextStyle(
-      color: Colors.white,
-      fontWeight: FontWeight.bold,
-      fontSize: 16,
+      fontFamily: "MontserratBold",
+      color: textColorDark,
+      fontSize: textSizeMedium,
     ),
     titleSmall: TextStyle(
-      color: Colors.white,
-      fontWeight: FontWeight.bold,
-      fontSize: 12,
-    ),
-    headlineSmall: TextStyle(
-      color: Colors.white,
-      fontWeight: FontWeight.w400,
-      fontSize: 12,
-    ),
-    headlineMedium: TextStyle(
-      color: Colors.white,
-      fontWeight: FontWeight.w400,
-      fontSize: 16,
-    ),
-    headlineLarge: TextStyle(
-      color: Colors.white,
-      fontWeight: FontWeight.bold,
-      fontSize: 24,
+      color: textColorDark,
+      fontFamily: "MontserratBold",
+      fontSize: textSizeSmall,
     ),
   ),
-  scaffoldBackgroundColor: const Color(0xFF121212),
+  scaffoldBackgroundColor: const Color(0xFF121111),
   appBarTheme: const AppBarTheme(
-    backgroundColor: Color(0xFF121212),
+    backgroundColor: Color(0xFF121111),
   ),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-    backgroundColor: Color(0xFF121212),
+    backgroundColor: Color(0xFF121111),
     elevation: 0,
   ),
 );
