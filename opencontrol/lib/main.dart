@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:opencontrol/screens/login_page_screen.dart';
+import 'package:opencontrol/screens/authorization/login_page_screen.dart';
+import 'package:opencontrol/screens/home%20page/home_page_screen.dart';
 import 'package:opencontrol/themes.dart';
 
 void main() {

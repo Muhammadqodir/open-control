@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:opencontrol/constants/constants_colors.dart';
 import 'package:opencontrol/widgets/primary_button.dart';
-import 'package:opencontrol/widgets/auth_text_field.dart';
+import 'package:opencontrol/screens/authorization/components/auth_text_field.dart';
 
 class LoginPageScreen extends StatelessWidget {
   const LoginPageScreen({super.key});

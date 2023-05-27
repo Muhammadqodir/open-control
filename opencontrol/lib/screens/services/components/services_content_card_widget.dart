@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../constants/constants_colors.dart';
+import '../../../constants/constants_colors.dart';
 
 class ServicesContentCardWidget extends StatelessWidget {
   final String title;

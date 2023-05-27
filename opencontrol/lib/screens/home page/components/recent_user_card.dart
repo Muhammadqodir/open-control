@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../constants/constants_colors.dart';
+import '../../../constants/constants_colors.dart';
 
 class RecentUserCard extends StatelessWidget {
   final ImageProvider image;

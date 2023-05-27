@@ -2,9 +2,9 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:opencontrol/constants/constants_colors.dart';
-import '../widgets/bottom_navigation.dart';
-import '../widgets/services_content_card_widget.dart';
-import '../widgets/text_field_home_page_widget.dart';
+import '../../widgets/bottom_navigation.dart';
+import '../../widgets/services_content_card_widget.dart';
+import '../../widgets/text_field_home_page_widget.dart';
 
 class ServicesContentScreen extends StatefulWidget {
   const ServicesContentScreen({super.key});

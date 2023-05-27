@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../constants/constants_colors.dart';
+import '../../../constants/constants_colors.dart';
 
 class ServicesCardWidget extends StatelessWidget {
   final ImageProvider image;
