@@ -5,19 +5,17 @@ import 'package:opencontrol/constants/constants_colors.dart';
 import 'package:opencontrol/screens/chat_screen.dart';
 import 'package:opencontrol/widgets/on_tap_scale_and_fade.dart';
 import 'package:opencontrol/widgets/primary_card.dart';
-import 'package:opencontrol/widgets/recent_user_card.dart';
-import 'package:opencontrol/widgets/text_field_home_page_widget.dart';
+import 'package:opencontrol/widgets/services_card_widget.dart';
 import '../widgets/bottom_navigation.dart';
-import '../widgets/active_user_card.dart';
 
-class HomePageScreen extends StatefulWidget {
-  const HomePageScreen({super.key});
+class MainPageScreen extends StatefulWidget {
+  const MainPageScreen({super.key});
 
   @override
-  State<HomePageScreen> createState() => _HomePageScreenState();
+  State<MainPageScreen> createState() => _MainPageScreenState();
 }
 
-class _HomePageScreenState extends State<HomePageScreen> {
+class _MainPageScreenState extends State<MainPageScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -35,8 +33,8 @@ class _HomePageScreenState extends State<HomePageScreen> {
           children: [
             SafeArea(
               minimum: const EdgeInsets.only(
-                right: 30,
-                left: 30,
+                right: 24,
+                left: 24,
                 top: 30,
               ),
               child: ListView(
@@ -45,47 +43,64 @@ class _HomePageScreenState extends State<HomePageScreen> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
-                        children: [
-                          Text(
-                            'Messages',
-                            style: Theme.of(context).textTheme.titleLarge,
-                          ),
-                          Expanded(child: Container()),
-                          const Icon(
-                            Icons.settings,
-                            color: textPrimaryColor,
-                            size: 25,
-                          ),
-                        ],
+                      Text(
+                        'Бизнес-Надзор',
+                        style: TextStyle(
+                          fontSize: 28,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
                       ),
                       const SizedBox(
-                        height: 24,
-                      ),
-                      const SizedBox(
-                        height: 48,
-                        child: TextFieldHomePage(),
-                      ),
-                      const SizedBox(
-                        height: 25,
+                        height: 28,
                       ),
                       const PrimaryCard(
-                        text: 'Currently Active',
+                        text: 'Запланированные встречи',
                         icon: Icons.ac_unit,
                       ),
                       const SizedBox(
-                        height: 13,
+                        height: 17,
                       ),
-                      const ActiveUserCard(
-                        name: 'Ethan',
-                        image: NetworkImage(
-                            'https://mrrk.ru/wp-content/uploads/2022/07/CUtAw2xa.jpg'),
+                      Text(
+                        'У вас нет запланированных встреч',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: const Color.fromARGB(128, 255, 255, 255),
+                        ),
                       ),
                       const SizedBox(
-                        height: 26,
+                        height: 10,
+                      ),
+                      Container(
+                        decoration: kGradientBoxDecoration,
+                        child: Padding(
+                          padding: const EdgeInsets.all(0.9),
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 20),
+                            decoration: BoxDecoration(
+                              color: kPrimaryColor,
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(22),
+                              ),
+                            ),
+                            child: Text(
+                              'Записаться на консультацию',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 25,
                       ),
                       const PrimaryCard(
-                        text: 'Currently Active',
+                        text: 'Сервисы',
                         icon: Icons.ac_unit,
                       ),
                       const SizedBox(
@@ -93,14 +108,12 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       ),
                       OnTapScaleAndFade(
                           lowerBound: 0.95,
-                          child: RecentUserCard(
+                          child: ServicesCardWidget(
                             image: AssetImage(
-                              'assets/images/user2.png',
+                              'assets/images/book.png',
                             ),
-                            name: 'Alexander',
-                            text: 'Hey, what`s up?',
-                            time: '4 min',
-                            countMessage: 5,
+                            title: 'Alexander',
+                            subTitle: 'Hey, what`s up?',
                           ),
                           onTap: () {
                             Route route = MaterialPageRoute(
@@ -110,22 +123,6 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       SizedBox(
                         height: 10,
                       ),
-                      OnTapScaleAndFade(
-                          lowerBound: 0.95,
-                          child: RecentUserCard(
-                            image: AssetImage(
-                              'assets/images/user2.png',
-                            ),
-                            name: 'Alexander',
-                            text: 'Hey, what`s up?',
-                            time: '4 min',
-                            countMessage: 5,
-                          ),
-                          onTap: () {
-                            Route route = MaterialPageRoute(
-                                builder: (context) => ChatScreen());
-                            Navigator.push(context, route);
-                          }),
                     ],
                   ),
                 ],

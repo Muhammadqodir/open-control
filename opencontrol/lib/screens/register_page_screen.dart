@@ -15,7 +15,7 @@ class RegisterPageScreen extends StatelessWidget {
               end: Alignment(0, 2.5),
               colors: [
             homePageBackColor,
-            Color.fromRGBO(124, 1, 246, 0),
+            homePageSecondColor,
           ])),
       child: Scaffold(
         backgroundColor: Colors.transparent,

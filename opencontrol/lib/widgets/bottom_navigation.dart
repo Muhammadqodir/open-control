@@ -9,8 +9,8 @@ class BottomNavigation extends StatelessWidget {
       height: 70,
       decoration: const BoxDecoration(
           gradient: LinearGradient(colors: [
-        Color.fromARGB(42, 34, 34, 34),
-        Color.fromRGBO(69, 69, 69, 0.437),
+        Color.fromARGB(151, 34, 34, 34),
+        Color.fromRGBO(40, 40, 40, 0.447),
       ])),
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
       child: const Row(
