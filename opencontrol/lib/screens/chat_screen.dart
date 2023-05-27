@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:opencontrol/constants/themes.dart';
-
-import '../constants/constants_colors.dart';
+import 'package:opencontrol/constants/constants_colors.dart';
+import 'package:opencontrol/themes.dart';
 
 class ChatScreen extends StatelessWidget {
   const ChatScreen({super.key});

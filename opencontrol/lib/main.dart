@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:opencontrol/constants/themes.dart';
+import 'package:opencontrol/screens/register_page_screen.dart';
+import 'package:opencontrol/themes.dart';
 import 'screens/home_page_screen.dart';
 
 void main() {
@@ -13,8 +14,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: lightTheme,
-      home: const HomePageScreen(),
+      debugShowCheckedModeBanner: false,
+      theme: lightThemeData(context),
+      darkTheme: darkThemeData(context),
+      themeMode: ThemeMode.light,
+      home: const RegisterPageScreen(),
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:opencontrol/constants/themes.dart';
+import 'package:opencontrol/constants/constants_colors.dart';
 
 class BottomNavigation extends StatelessWidget {
   const BottomNavigation({super.key});
@@ -10,14 +10,14 @@ class BottomNavigation extends StatelessWidget {
     return FloatingNavbar(
       borderRadius: 55,
       padding: const EdgeInsets.symmetric(vertical: 15),
-      backgroundColor: textFieldBackground,
-      selectedBackgroundColor: textFieldBackground,
+      backgroundColor: homePageBackColor.withOpacity(0.7),
+      selectedBackgroundColor: homePageBackColor.withOpacity(0.3),
       selectedItemColor: const Color(0xff7C01F6),
       unselectedItemColor: const Color(0xff4D4C4E),
       onTap: (int val) {
-        //returns tab id which is user tapped
+        print(val);
       },
-      currentIndex: 0,
+      currentIndex: 1,
       items: [
         FloatingNavbarItem(
             customWidget: const ImageIcon(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../constants/themes.dart';
+import 'package:opencontrol/constants/constants_colors.dart';
 
 class TextFieldHomePage extends StatelessWidget {
   const TextFieldHomePage({super.key});
@@ -14,14 +14,14 @@ class TextFieldHomePage extends StatelessWidget {
         hintText: 'Search...',
         suffixIcon: const Icon(
           Icons.search,
-          color: textLargeColor,
+          color: textPrimaryColor,
         ),
         hintStyle: const TextStyle(
-          color: textLargeColor,
+          color: textPrimaryColor,
           fontSize: 18,
         ),
         filled: true,
-        fillColor: textFieldBackground,
+        fillColor: kPrimaryColor,
         contentPadding: const EdgeInsets.only(left: 15),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(50.0),
