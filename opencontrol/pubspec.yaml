@@ -37,6 +37,7 @@ dependencies:
   google_fonts: ^4.0.5
   floating_frosted_bottom_bar: ^0.0.1
   floating_bottom_navigation_bar: ^1.5.2
+  mask_text_input_formatter: ^2.4.0
 
 dev_dependencies:
   flutter_test:

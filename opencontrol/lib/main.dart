@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:opencontrol/screens/login_page_screen.dart';
 import 'package:opencontrol/themes.dart';
-import 'screens/home_page_screen.dart';
 import 'screens/register_page_screen.dart';
 
 void main() {
@@ -19,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: lightThemeData(context),
       darkTheme: darkThemeData(context),
       themeMode: ThemeMode.light,
-      home: const RegisterPageScreen(),
+      home: const LoginPageScreen(),
     );
   }
 }

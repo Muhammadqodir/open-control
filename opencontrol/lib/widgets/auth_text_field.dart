@@ -1,14 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:opencontrol/constants/constants_colors.dart';
 
 class AuthFieldWidget extends StatelessWidget {
   final String hintText;
+  final MaskTextInputFormatter? maskTextInputFormatter;
+  final TextInputType textInputType;
 
-  const AuthFieldWidget({super.key, required this.hintText});
+  const AuthFieldWidget(
+      {super.key,
+      required this.hintText,
+      this.maskTextInputFormatter,
+      this.textInputType = TextInputType.text});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      inputFormatters: [
+        if (maskTextInputFormatter != null) maskTextInputFormatter!
+      ],
+      keyboardType: textInputType,
       style: const TextStyle(
         color: Colors.white,
       ),
