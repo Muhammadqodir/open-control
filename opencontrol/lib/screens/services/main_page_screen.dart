@@ -5,7 +5,7 @@ import 'package:opencontrol/constants/constants_colors.dart';
 import 'package:opencontrol/screens/chat/chat_screen.dart';
 import 'package:opencontrol/widgets/on_tap_scale_and_fade.dart';
 import 'package:opencontrol/widgets/primary_card.dart';
-import 'package:opencontrol/widgets/services_card_widget.dart';
+import 'package:opencontrol/screens/services/components/services_card_widget.dart';
 import '../../widgets/bottom_navigation.dart';
 
 class MainPageScreen extends StatefulWidget {

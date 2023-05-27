@@ -5,7 +5,7 @@ import 'package:opencontrol/constants/constants_colors.dart';
 import 'package:opencontrol/screens/chat/chat_screen.dart';
 import 'package:opencontrol/widgets/on_tap_scale_and_fade.dart';
 import 'package:opencontrol/widgets/primary_card.dart';
-import 'package:opencontrol/widgets/recent_user_card.dart';
+import 'package:opencontrol/screens/home%20page/components/recent_user_card.dart';
 import 'package:opencontrol/widgets/text_field_home_page_widget.dart';
 import '../../widgets/bottom_navigation.dart';
 import 'components/active_user_card.dart';
