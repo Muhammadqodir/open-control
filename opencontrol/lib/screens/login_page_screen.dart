@@ -3,8 +3,8 @@ import 'package:opencontrol/constants/constants_colors.dart';
 import 'package:opencontrol/widgets/register_button.dart';
 import 'package:opencontrol/widgets/text_field_home_page.dart';
 
-class RegisterPageScreen extends StatelessWidget {
-  const RegisterPageScreen({super.key});
+class LoginPageScreen extends StatelessWidget {
+  const LoginPageScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +23,8 @@ class RegisterPageScreen extends StatelessWidget {
           minimum: const EdgeInsets.only(
             right: 32,
             left: 32,
-            top: 80,
-            bottom: 25,
+            top: 104,
+            bottom: 32,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -39,7 +39,7 @@ class RegisterPageScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 28,
+                height: 31,
               ),
               Text(
                 'Бизнес-Надзор',
@@ -58,30 +58,14 @@ class RegisterPageScreen extends StatelessWidget {
               ),
               TextFieldHomePage(),
               SizedBox(
-                height: 10,
-              ),
-              TextFieldHomePage(),
-              SizedBox(
-                height: 10,
-              ),
-              TextFieldHomePage(),
-              SizedBox(
-                height: 10,
-              ),
-              TextFieldHomePage(),
-              SizedBox(
-                height: 10,
-              ),
-              TextFieldHomePage(),
-              SizedBox(
                 height: 20,
               ),
               RegisterButton(),
               SizedBox(
-                height: 15,
+                height: 20,
               ),
               Text(
-                'Вход',
+                'Регистрация',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w600,

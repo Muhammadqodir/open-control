@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:opencontrol/screens/register_page_screen.dart';
+import 'package:opencontrol/screens/login_page_screen.dart';
 import 'package:opencontrol/themes.dart';
 import 'screens/home_page_screen.dart';
+import 'screens/register_page_screen.dart';
 
 void main() {
   runApp(const MyApp());
