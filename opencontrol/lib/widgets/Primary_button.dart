@@ -11,7 +11,7 @@ class PrimaryButton extends StatelessWidget {
       width: 208,
       height: 48,
       decoration: BoxDecoration(
-        gradient: LinearGradient(
+        gradient: const LinearGradient(
             begin: Alignment.centerLeft,
             end: Alignment.topRight,
             colors: [
@@ -22,7 +22,7 @@ class PrimaryButton extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.w600,
           color: Colors.white,

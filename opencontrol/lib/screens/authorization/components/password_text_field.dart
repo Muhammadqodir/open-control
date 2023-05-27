@@ -11,10 +11,12 @@ class PasswordTextFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       autocorrect: false,
       cursorColor: Colors.grey,
       obscureText: true,
+      validator: (value) =>
+          value != null && value.length < 6 ? 'Минимум 6 символов' : null,
       style: const TextStyle(
         color: Colors.white,
       ),

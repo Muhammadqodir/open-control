@@ -21,7 +21,7 @@ class RecentUserCard extends StatelessWidget {
     return Container(
       decoration: kGradientBoxDecoration,
       child: Padding(
-        padding: EdgeInsets.all(0.8),
+        padding: const EdgeInsets.all(0.8),
         child: Container(
           padding:
               const EdgeInsets.only(top: 12, bottom: 12, left: 10, right: 19),

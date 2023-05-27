@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:opencontrol/constants/constants_colors.dart';
 import 'package:opencontrol/screens/chat/chat_screen.dart';
@@ -40,7 +41,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                 top: 30,
               ),
               child: ListView(
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,7 +94,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       ),
                       OnTapScaleAndFade(
                           lowerBound: 0.95,
-                          child: RecentUserCard(
+                          child: const RecentUserCard(
                             image: AssetImage(
                               'assets/images/user2.png',
                             ),
@@ -104,15 +105,15 @@ class _HomePageScreenState extends State<HomePageScreen> {
                           ),
                           onTap: () {
                             Route route = MaterialPageRoute(
-                                builder: (context) => ChatScreen());
+                                builder: (context) => const ChatScreen());
                             Navigator.push(context, route);
                           }),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       OnTapScaleAndFade(
                           lowerBound: 0.95,
-                          child: RecentUserCard(
+                          child: const RecentUserCard(
                             image: AssetImage(
                               'assets/images/user2.png',
                             ),
@@ -122,8 +123,8 @@ class _HomePageScreenState extends State<HomePageScreen> {
                             countMessage: 5,
                           ),
                           onTap: () {
-                            Route route = MaterialPageRoute(
-                                builder: (context) => ChatScreen());
+                            Route route = CupertinoPageRoute(
+                                builder: (context) => const ChatScreen());
                             Navigator.push(context, route);
                           }),
                     ],
@@ -142,7 +143,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       sigmaX: 9.0,
                       sigmaY: 9.0,
                     ),
-                    child: BottomNavigation(),
+                    child: const BottomNavigation(),
                   ),
                 ),
               ),

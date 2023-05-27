@@ -21,35 +21,35 @@ class ChatScreen extends StatelessWidget {
           backgroundColor: Colors.transparent,
           body: Column(
             children: [
-              Spacer(),
+              const Spacer(),
               Container(
                 padding: const EdgeInsets.symmetric(
                     horizontal: kDefaultPadding, vertical: kDefaultPadding / 2),
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color(0xff1F1F1F),
                 ),
                 child: SafeArea(
                   child: Row(children: [
-                    ImageIcon(
+                    const ImageIcon(
                       AssetImage('assets/images/Vector.png'),
                       color: Color(0xff7C01F6),
                       size: 35,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: kDefaultPadding,
                     ),
                     Expanded(
                       child: Container(
                         height: 50,
                         decoration: BoxDecoration(
-                            color: Color(0xff272626),
+                            color: const Color(0xff272626),
                             borderRadius: BorderRadius.circular(10)),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: kDefaultPadding,
                     ),
-                    ImageIcon(
+                    const ImageIcon(
                       AssetImage('assets/images/send.png'),
                       color: Color(0xff7C01F6),
                       size: 35,
@@ -65,9 +65,9 @@ class ChatScreen extends StatelessWidget {
 
 AppBar builAppBar() {
   return AppBar(
-    backgroundColor: Color(0xff1F1F1F),
+    backgroundColor: const Color(0xff1F1F1F),
     automaticallyImplyLeading: false,
-    title: Row(
+    title: const Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         CircleAvatar(
@@ -105,11 +105,11 @@ AppBar builAppBar() {
     actions: [
       IconButton(
         onPressed: () {},
-        icon: Icon(Icons.local_phone),
+        icon: const Icon(Icons.local_phone),
       ),
       IconButton(
         onPressed: () {},
-        icon: Icon(Icons.videocam),
+        icon: const Icon(Icons.videocam),
       ),
     ],
   );

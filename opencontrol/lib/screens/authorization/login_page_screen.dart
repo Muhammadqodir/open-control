@@ -1,9 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:opencontrol/constants/constants_colors.dart';
 import 'package:opencontrol/screens/authorization/components/password_text_field.dart';
+import 'package:opencontrol/screens/authorization/register_page_screen.dart';
 import 'package:opencontrol/widgets/primary_button.dart';
 import 'package:opencontrol/screens/authorization/components/auth_text_field.dart';
+import '../../widgets/on_tap_scale_and_fade.dart';
 
 class LoginPageScreen extends StatelessWidget {
   const LoginPageScreen({super.key});
@@ -31,7 +34,6 @@ class LoginPageScreen extends StatelessWidget {
                   left: 20,
                 ),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
                       height: 100,
@@ -74,18 +76,28 @@ class LoginPageScreen extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
-                    const PrimaryButton(
-                      text: 'Вход',
+                    OnTapScaleAndFade(
+                      onTap: () {},
+                      child: const PrimaryButton(
+                        text: 'Вход',
+                      ),
                     ),
                     const SizedBox(
                       height: 20,
                     ),
-                    const Text(
-                      'Регистрация',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white,
+                    OnTapScaleAndFade(
+                      onTap: () {
+                        Route route = CupertinoPageRoute(
+                            builder: (context) => const RegisterPageScreen());
+                        Navigator.push(context, route);
+                      },
+                      child: const Text(
+                        'Регистрация',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                     const SizedBox(

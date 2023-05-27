@@ -17,7 +17,7 @@ class ServicesContentCardWidget extends StatelessWidget {
     return Container(
       decoration: kGradientBoxDecoration,
       child: Padding(
-        padding: EdgeInsets.all(0.8),
+        padding: const EdgeInsets.all(0.8),
         child: Container(
           padding: const EdgeInsets.only(
             top: 18,
@@ -42,10 +42,10 @@ class ServicesContentCardWidget extends StatelessWidget {
                 description,
                 style: const TextStyle(color: Color(0xffC8C8C8)),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(

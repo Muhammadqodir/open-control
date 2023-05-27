@@ -36,8 +36,8 @@ class _ServicesContentScreenState extends State<ServicesContentScreen> {
                 top: 30,
               ),
               child: ListView(
-                physics: BouncingScrollPhysics(),
-                children: [
+                physics: const BouncingScrollPhysics(),
+                children: const [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -61,11 +61,11 @@ class _ServicesContentScreenState extends State<ServicesContentScreen> {
                           ),
                         ],
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: 28,
                       ),
                       TextFieldHomePage(),
-                      const SizedBox(
+                      SizedBox(
                         height: 17,
                       ),
                       Text(
@@ -73,10 +73,10 @@ class _ServicesContentScreenState extends State<ServicesContentScreen> {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: const Color.fromARGB(128, 255, 255, 255),
+                          color: Color.fromARGB(128, 255, 255, 255),
                         ),
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: 17,
                       ),
                       ServicesContentCardWidget(
@@ -103,7 +103,7 @@ class _ServicesContentScreenState extends State<ServicesContentScreen> {
                       sigmaX: 9.0,
                       sigmaY: 9.0,
                     ),
-                    child: BottomNavigation(),
+                    child: const BottomNavigation(),
                   ),
                 ),
               ),

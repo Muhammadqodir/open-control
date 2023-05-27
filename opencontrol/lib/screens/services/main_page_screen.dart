@@ -38,12 +38,12 @@ class _MainPageScreenState extends State<MainPageScreen> {
                 top: 30,
               ),
               child: ListView(
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         'Бизнес-Надзор',
                         style: TextStyle(
                           fontSize: 28,
@@ -61,12 +61,12 @@ class _MainPageScreenState extends State<MainPageScreen> {
                       const SizedBox(
                         height: 17,
                       ),
-                      Text(
+                      const Text(
                         'У вас нет запланированных встреч',
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: const Color.fromARGB(128, 255, 255, 255),
+                          color: Color.fromARGB(128, 255, 255, 255),
                         ),
                       ),
                       const SizedBox(
@@ -79,13 +79,13 @@ class _MainPageScreenState extends State<MainPageScreen> {
                           child: Container(
                             padding: const EdgeInsets.symmetric(
                                 vertical: 10, horizontal: 20),
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: kPrimaryColor,
                               borderRadius: BorderRadius.all(
                                 Radius.circular(22),
                               ),
                             ),
-                            child: Text(
+                            child: const Text(
                               'Записаться на консультацию',
                               style: TextStyle(
                                 fontSize: 16,
@@ -96,7 +96,7 @@ class _MainPageScreenState extends State<MainPageScreen> {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 25,
                       ),
                       const PrimaryCard(
@@ -108,7 +108,7 @@ class _MainPageScreenState extends State<MainPageScreen> {
                       ),
                       OnTapScaleAndFade(
                           lowerBound: 0.95,
-                          child: ServicesCardWidget(
+                          child: const ServicesCardWidget(
                             image: AssetImage(
                               'assets/images/book.png',
                             ),
@@ -117,10 +117,10 @@ class _MainPageScreenState extends State<MainPageScreen> {
                           ),
                           onTap: () {
                             Route route = MaterialPageRoute(
-                                builder: (context) => ChatScreen());
+                                builder: (context) => const ChatScreen());
                             Navigator.push(context, route);
                           }),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                     ],
@@ -139,7 +139,7 @@ class _MainPageScreenState extends State<MainPageScreen> {
                       sigmaX: 9.0,
                       sigmaY: 9.0,
                     ),
-                    child: BottomNavigation(),
+                    child: const BottomNavigation(),
                   ),
                 ),
               ),
