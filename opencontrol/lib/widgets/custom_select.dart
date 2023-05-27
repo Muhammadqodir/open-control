@@ -67,9 +67,10 @@ class _CustomSelectState extends State<CustomSelect> {
                   ? const CupertinoActivityIndicator(
                       radius: 12,
                     )
-                  : const Icon(
+                  : Icon(
                       CupertinoIcons.chevron_down,
                       size: 24,
+                      color: Theme.of(context).textTheme.titleLarge!.color,
                     )
             ],
           ),
@@ -97,7 +98,7 @@ class _CustomSelectState extends State<CustomSelect> {
           bottom: MediaQuery.of(context).viewInsets.bottom,
         ),
         // Provide a background color for the popup.
-        color: CupertinoColors.systemBackground.resolveFrom(context),
+        color: Theme.of(context).scaffoldBackgroundColor,
         // Use a SafeArea widget to avoid system overlaps.
         child: SafeArea(
           top: false,

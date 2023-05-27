@@ -9,7 +9,14 @@ import 'package:opencontrol/widgets/on_tap_scale_and_fade.dart';
 import 'package:opencontrol/widgets/primary_button.dart';
 
 class RegisterPageScreen extends StatelessWidget {
-  const RegisterPageScreen({super.key});
+  RegisterPageScreen({super.key});
+
+  final TextEditingController orgNameController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController passwordRepeatController =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +24,11 @@ class RegisterPageScreen extends StatelessWidget {
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Stack(
         children: [
-          Expanded(
-              child: Container(
-            decoration: gradientBG,
-          )),
+          Positioned(
+            child: Container(
+              decoration: gradientBG,
+            ),
+          ),
           SafeArea(
             child: ListView(
               children: [
@@ -43,12 +51,6 @@ class RegisterPageScreen extends StatelessWidget {
                       const SizedBox(
                         height: 32,
                       ),
-                      const CustomTextField(
-                        hintText: 'Наименование организации',
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
                       CustomSelect(
                         items: const [
                           'ООО',
@@ -65,18 +67,27 @@ class RegisterPageScreen extends StatelessWidget {
                         ],
                         baseColor: Theme.of(context).cardColor,
                         onChanged: (v) {},
-                        hint: 'Наименование организации',
+                        hint: 'Тип организации',
                       ),
                       const SizedBox(
                         height: 10,
                       ),
-                      const CustomTextField(
+                      CustomTextField(
+                        controller: orgNameController,
+                        hintText: 'Наименование организации',
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      CustomTextField(
+                        controller: nameController,
                         hintText: 'Ваше Имя',
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       CustomTextField(
+                        controller: phoneController,
                         hintText: 'Номер телефона',
                         textInputType: TextInputType.phone,
                         maskTextInputFormatter: MaskTextInputFormatter(
@@ -88,14 +99,16 @@ class RegisterPageScreen extends StatelessWidget {
                       const SizedBox(
                         height: 10,
                       ),
-                      const CustomTextField(
+                      CustomTextField(
+                        controller: passwordController,
                         isPassword: true,
                         hintText: 'Придумайте пароль',
                       ),
                       const SizedBox(
                         height: 10,
                       ),
-                      const CustomTextField(
+                      CustomTextField(
+                        controller: passwordController,
                         isPassword: true,
                         hintText: 'Повторите пароль',
                       ),
@@ -116,8 +129,9 @@ class RegisterPageScreen extends StatelessWidget {
                       OnTapScaleAndFade(
                         onTap: () {
                           Route route = CupertinoPageRoute(
-                              builder: (context) => const RegisterPageScreen());
-                          Navigator.push(context, route);
+                            builder: (context) => LoginPageScreen(),
+                          );
+                          Navigator.pushReplacement(context, route);
                         },
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 12),

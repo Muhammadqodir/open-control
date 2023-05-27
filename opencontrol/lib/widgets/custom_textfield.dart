@@ -6,8 +6,10 @@ class CustomTextField extends StatelessWidget {
   final MaskTextInputFormatter? maskTextInputFormatter;
   final TextInputType textInputType;
   final isPassword;
+  final TextEditingController controller;
   const CustomTextField({
     super.key,
+    required this.controller,
     required this.hintText,
     this.maskTextInputFormatter,
     this.isPassword = false,
@@ -20,6 +22,7 @@ class CustomTextField extends StatelessWidget {
       inputFormatters: [
         if (maskTextInputFormatter != null) maskTextInputFormatter!
       ],
+      controller: controller,
       keyboardType: textInputType,
       obscureText: isPassword,
       style: Theme.of(context).textTheme.titleMedium,

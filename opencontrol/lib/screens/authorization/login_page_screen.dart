@@ -9,7 +9,10 @@ import 'package:opencontrol/widgets/primary_button.dart';
 import '../../widgets/on_tap_scale_and_fade.dart';
 
 class LoginPageScreen extends StatelessWidget {
-  const LoginPageScreen({super.key});
+  LoginPageScreen({super.key});
+
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +20,7 @@ class LoginPageScreen extends StatelessWidget {
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Stack(
         children: [
-          Expanded(
+          Positioned(
             child: Container(
               decoration: gradientBG,
             ),
@@ -41,6 +44,7 @@ class LoginPageScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 32),
                       CustomTextField(
+                        controller: phoneController,
                         hintText: 'Номер телефона',
                         textInputType: TextInputType.phone,
                         maskTextInputFormatter: MaskTextInputFormatter(
@@ -50,7 +54,8 @@ class LoginPageScreen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 12),
-                      const CustomTextField(
+                      CustomTextField(
+                        controller: passwordController,
                         hintText: 'Пароль',
                         isPassword: true,
                         textInputType: TextInputType.phone,
@@ -67,7 +72,7 @@ class LoginPageScreen extends StatelessWidget {
                       OnTapScaleAndFade(
                         onTap: () {
                           Route route = CupertinoPageRoute(
-                              builder: (context) => const RegisterPageScreen());
+                              builder: (context) => RegisterPageScreen());
                           Navigator.push(context, route);
                         },
                         child: Padding(
