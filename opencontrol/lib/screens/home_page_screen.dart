@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:opencontrol/constants/constants_colors.dart';
 import 'package:opencontrol/screens/chat_screen.dart';
@@ -190,9 +192,21 @@ class _HomePageScreenState extends State<HomePageScreen> {
                 ],
               ),
             ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: BottomNavigation(),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(25),
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(
+                      sigmaX: 9.0,
+                      sigmaY: 9.0,
+                    ),
+                    child: BottomNavigation(),
+                  ),
+                ),
+              ),
             ),
           ],
         ),
