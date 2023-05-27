@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-class RegisterButton extends StatelessWidget {
-  const RegisterButton({super.key});
+class PrimaryButton extends StatelessWidget {
+  final String text;
+  const PrimaryButton({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class RegisterButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(28),
       ),
       child: Text(
-        'Вход',
+        text,
         style: TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.w600,

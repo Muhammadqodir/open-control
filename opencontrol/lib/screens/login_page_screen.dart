@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:opencontrol/constants/constants_colors.dart';
-import 'package:opencontrol/widgets/register_button.dart';
-import 'package:opencontrol/widgets/text_field_home_page.dart';
+import 'package:opencontrol/widgets/Primary_button.dart';
+import 'package:opencontrol/widgets/auth_text_field.dart';
 
 class LoginPageScreen extends StatelessWidget {
   const LoginPageScreen({super.key});
@@ -52,15 +52,21 @@ class LoginPageScreen extends StatelessWidget {
               SizedBox(
                 height: 34,
               ),
-              TextFieldHomePage(),
+              AuthFieldWidget(
+                hintText: 'Номер телефона',
+              ),
               SizedBox(
                 height: 10,
               ),
-              TextFieldHomePage(),
+              AuthFieldWidget(
+                hintText: 'Пароль',
+              ),
               SizedBox(
                 height: 20,
               ),
-              RegisterButton(),
+              PrimaryButton(
+                text: 'Вход',
+              ),
               SizedBox(
                 height: 20,
               ),

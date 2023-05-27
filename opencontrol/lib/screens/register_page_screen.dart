@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:opencontrol/constants/constants_colors.dart';
-import 'package:opencontrol/widgets/register_button.dart';
-import 'package:opencontrol/widgets/text_field_home_page.dart';
+import 'package:opencontrol/widgets/Primary_button.dart';
+import 'package:opencontrol/widgets/auth_text_field.dart';
 
 class RegisterPageScreen extends StatelessWidget {
   const RegisterPageScreen({super.key});
@@ -52,31 +52,45 @@ class RegisterPageScreen extends StatelessWidget {
               SizedBox(
                 height: 34,
               ),
-              TextFieldHomePage(),
+              AuthFieldWidget(
+                hintText: 'Наименование организации',
+              ),
               SizedBox(
                 height: 10,
               ),
-              TextFieldHomePage(),
+              AuthFieldWidget(
+                hintText: 'Наименование организации',
+              ),
               SizedBox(
                 height: 10,
               ),
-              TextFieldHomePage(),
+              AuthFieldWidget(
+                hintText: 'Ваше Имя',
+              ),
               SizedBox(
                 height: 10,
               ),
-              TextFieldHomePage(),
+              AuthFieldWidget(
+                hintText: 'Номер телефона',
+              ),
               SizedBox(
                 height: 10,
               ),
-              TextFieldHomePage(),
+              AuthFieldWidget(
+                hintText: 'Придумайте пароль',
+              ),
               SizedBox(
                 height: 10,
               ),
-              TextFieldHomePage(),
+              AuthFieldWidget(
+                hintText: 'Повторите пароль',
+              ),
               SizedBox(
                 height: 20,
               ),
-              RegisterButton(),
+              PrimaryButton(
+                text: 'Регистрация',
+              ),
               SizedBox(
                 height: 15,
               ),

@@ -4,7 +4,7 @@ import 'package:opencontrol/screens/chat_screen.dart';
 import 'package:opencontrol/widgets/on_tap_scale_and_fade.dart';
 import 'package:opencontrol/widgets/primary_card.dart';
 import 'package:opencontrol/widgets/recent_user_card.dart';
-import 'package:opencontrol/widgets/text_field_home_page.dart';
+import 'package:opencontrol/widgets/text_field_home_page_widget.dart';
 import '../widgets/bottom_navigation.dart';
 import '../widgets/active_user_card.dart';
 
