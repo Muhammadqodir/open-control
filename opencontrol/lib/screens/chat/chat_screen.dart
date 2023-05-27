@@ -23,8 +23,7 @@ class ChatScreen extends StatelessWidget {
             children: [
               const Spacer(),
               Container(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: kDefaultPadding, vertical: kDefaultPadding / 2),
+                padding: const EdgeInsets.all(12),
                 decoration: const BoxDecoration(
                   color: Color(0xff1F1F1F),
                 ),
@@ -36,7 +35,7 @@ class ChatScreen extends StatelessWidget {
                       size: 35,
                     ),
                     const SizedBox(
-                      width: kDefaultPadding,
+                      width: 12,
                     ),
                     Expanded(
                       child: Container(
@@ -47,7 +46,7 @@ class ChatScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(
-                      width: kDefaultPadding,
+                      width: 12,
                     ),
                     const ImageIcon(
                       AssetImage('assets/images/send.png'),
