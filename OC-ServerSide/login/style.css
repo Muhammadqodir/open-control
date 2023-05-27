@@ -1,0 +1,20 @@
+.auth_logo {
+    width: 200px;
+    margin: auto;
+    margin-top: 100px;
+}
+
+body {
+    text-align: center;
+}
+
+.login_form {
+    max-width: 300px;
+    margin: auto;
+    text-align: left;
+}
+
+.btn_center {
+    margin: auto;
+    text-align: center;
+}
