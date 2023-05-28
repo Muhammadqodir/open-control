@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:opencontrol/constants/constants_colors.dart';
 import 'package:opencontrol/screens/home%20page/components/active_user_card.dart';
+import 'package:opencontrol/widgets/action_btn.dart';
 import 'package:opencontrol/widgets/custom_action_bar.dart';
 import 'package:opencontrol/widgets/primary_card.dart';
 
@@ -92,6 +93,13 @@ class _MeetingsScreanState extends State<MeetingsScrean> {
             child: CustomActionBar(
               dropShadow: dropShadow,
               title: "Консультация",
+              backBtn: true,
+              actinos: [
+                ActionButton(
+                  onTap: () async {},
+                  icon: CupertinoIcons.add,
+                )
+              ],
             ),
           ),
         ],

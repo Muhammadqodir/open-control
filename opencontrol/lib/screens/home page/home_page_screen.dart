@@ -1,9 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:opencontrol/constants/constants_colors.dart';
+import 'package:opencontrol/cubit/theme_cubit.dart';
+import 'package:opencontrol/screens/splash_screan.dart';
+import 'package:opencontrol/widgets/action_btn.dart';
 import 'package:opencontrol/widgets/custom_action_bar.dart';
 import 'package:opencontrol/widgets/custom_card.dart';
 import 'package:opencontrol/widgets/primary_card.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../widgets/bottom_navigation.dart';
 import 'components/active_user_card.dart';
 
@@ -152,7 +157,36 @@ class _HomePageScreenState extends State<HomePageScreen> {
             child: CustomActionBar(
               dropShadow: dropShadow,
               title: "БизнесНадзор",
-              actinos: false,
+              backBtn: false,
+              actinos: [
+                BlocBuilder<ThemeCubit, ThemeState>(
+                  builder: (ctx, state) => ActionButton(
+                    onTap: () async {
+                      context.read<ThemeCubit>().toggleTheme();
+                    },
+                    icon: state.mode == ThemeMode.dark
+                        ? CupertinoIcons.sun_min_fill
+                        : CupertinoIcons.moon_fill,
+                  ),
+                ),
+                const SizedBox(
+                  width: 12,
+                ),
+                ActionButton(
+                  onTap: () async {
+                    SharedPreferences preferences =
+                        await SharedPreferences.getInstance();
+                    await preferences.setBool("isLogin", false);
+                    Navigator.pushReplacement(
+                      context,
+                      CupertinoPageRoute(
+                        builder: (context) => SplashScreen(),
+                      ),
+                    );
+                  },
+                  icon: CupertinoIcons.person_fill,
+                )
+              ],
             ),
           ),
           const Positioned(
