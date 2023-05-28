@@ -75,6 +75,21 @@ class DBHelper
     return $res;
   }
 
+  function searchInspector($id, $date, $time)
+  {
+    $res = [];
+    $sql = "SELECT * FROM `inspectors` WHERE control_organ_id = $id";
+
+    if ($result = $this->mysqli->query($sql)) {
+      while ($row = $result->fetch_assoc()) {
+        $res[] = $row;
+      }
+      $result->free_result();
+    }
+
+    return $res;
+  }
+
   function login($phone, $password)
   {
     $sql = "SELECT * FROM businesses WHERE phone = '$phone' AND password_hash = '$password'";

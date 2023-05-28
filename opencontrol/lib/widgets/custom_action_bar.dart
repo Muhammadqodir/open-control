@@ -11,10 +11,10 @@ class CustomActionBar extends StatelessWidget {
     required this.dropShadow,
     required this.actinos,
     required this.backBtn,
-    this.goBack
+    this.goBack,
   });
 
-  final title;
+  final String title;
   final bool dropShadow;
   final List<Widget> actinos;
   final bool backBtn;

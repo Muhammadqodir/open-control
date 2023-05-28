@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:opencontrol/models/business.dart';
+import 'package:opencontrol/models/inspector.dart';
 import 'package:opencontrol/models/nadzor_org.dart';
 
 class Api {
@@ -75,6 +76,39 @@ class Api {
               web: element["link"],
             ),
           );
+        }
+        return Result.success(list);
+      } else {
+        return Result.error(response.data);
+      }
+    } catch (e, stacktrace) {
+      return Result.error("$stacktrace \n\n $e", title: "Error!");
+    }
+  }
+
+  Future<Result<List<Inspector>>> searchInspector(
+      int id, String date, String time) async {
+    FormData data = FormData.fromMap({"id": id, "date": date, "time": time});
+    print(id);
+    Response response = await session.post(
+      "$apiUrl/search_inspector.php",
+      data: data,
+    );
+    try {
+      List<dynamic> serializedBody = response.data;
+      print(serializedBody);
+      if (response.statusCode == 200) {
+        List<Inspector> list = [];
+        for (var element in serializedBody) {
+          print(element["id"]);
+          list.add(Inspector(
+            id: int.parse(element["id"]),
+            name: element["name"],
+            picUrl: element["pic"],
+            rating: element["rating"],
+            nadzorId: int.parse(element["control_organ_id"]),
+            token: element["token"],
+          ));
         }
         return Result.success(list);
       } else {

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:opencontrol/constants/constants_colors.dart';
 import 'package:opencontrol/cubit/theme_cubit.dart';
+import 'package:opencontrol/screens/notificatinos_screan.dart';
 import 'package:opencontrol/screens/splash_screan.dart';
 import 'package:opencontrol/widgets/action_btn.dart';
 import 'package:opencontrol/widgets/custom_action_bar.dart';
@@ -21,6 +22,18 @@ class HomePageScreen extends StatefulWidget {
 
 class _HomePageScreenState extends State<HomePageScreen> {
   bool dropShadow = false;
+  bool notificationIndicator = false;
+
+  void logOut() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    await preferences.setBool("isLogin", false);
+    Navigator.pushReplacement(
+      context,
+      CupertinoPageRoute(
+        builder: (context) => SplashScreen(),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -119,24 +132,6 @@ class _HomePageScreenState extends State<HomePageScreen> {
                                 text:
                                     'Подробная информация о контрольно-надзорных органах',
                               ),
-                              CustomCard(
-                                onTap: () {},
-                                image: const AssetImage(
-                                  'assets/icons/folder.png',
-                                ),
-                                title: 'Нормативные правовые акты',
-                                text:
-                                    'Раздел с актуальной информацией о ведомственных нормативных правовых актах',
-                              ),
-                              CustomCard(
-                                onTap: () {},
-                                image: const AssetImage(
-                                  'assets/icons/sheild.png',
-                                ),
-                                title: 'Органы контроля',
-                                text:
-                                    'Подробная информация о контрольно-надзорных органах',
-                              ),
                               const SizedBox(
                                 height: 100,
                               ),
@@ -173,18 +168,16 @@ class _HomePageScreenState extends State<HomePageScreen> {
                   width: 12,
                 ),
                 ActionButton(
+                  indicator: notificationIndicator,
                   onTap: () async {
-                    SharedPreferences preferences =
-                        await SharedPreferences.getInstance();
-                    await preferences.setBool("isLogin", false);
-                    Navigator.pushReplacement(
+                    Navigator.push(
                       context,
                       CupertinoPageRoute(
-                        builder: (context) => SplashScreen(),
+                        builder: (context) => const NotificationsPage(),
                       ),
                     );
                   },
-                  icon: CupertinoIcons.person_fill,
+                  icon: CupertinoIcons.bell_fill,
                 )
               ],
             ),

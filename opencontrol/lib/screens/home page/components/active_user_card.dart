@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:opencontrol/constants/constants_colors.dart';
+import 'package:opencontrol/themes.dart';
 import 'package:opencontrol/widgets/on_tap_scale_and_fade.dart';
 
 class ActiveUserCard extends StatelessWidget {
@@ -32,7 +33,7 @@ class ActiveUserCard extends StatelessWidget {
                   width: 87,
                   height: 107,
                   decoration: BoxDecoration(
-                    color: const Color(0xff009BE4),
+                    color: primaryColor,
                     borderRadius: BorderRadius.circular(37),
                     image: DecorationImage(
                       image: image,

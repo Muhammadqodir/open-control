@@ -81,10 +81,11 @@ class ChatScreen extends StatelessWidget {
                     color: Theme.of(context).dividerColor,
                   ),
                   const Expanded(
-                      child: Padding(
-                    padding: EdgeInsets.all(12.0),
-                    child: CustomTextField(hintText: 'Type your message'),
-                  )),
+                    child: Padding(
+                      padding: EdgeInsets.all(12.0),
+                      child: Text("data"),
+                    ),
+                  ),
                   Image.asset(
                     'assets/images/send.png',
                     color: Theme.of(context).dividerColor,

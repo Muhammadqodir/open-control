@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:opencontrol/screens/meeting_page.dart';
 import 'package:opencontrol/screens/meetings_screan.dart';
 import 'package:opencontrol/themes.dart';
 import 'package:opencontrol/widgets/on_tap_scale_and_fade.dart';
@@ -30,7 +31,7 @@ class BottomNavigation extends StatelessWidget {
             color: Theme.of(context).cardColor.withAlpha(70),
           ),
           padding: const EdgeInsets.symmetric(
-            horizontal: 20,
+            horizontal: 0,
             vertical: 10,
           ),
           child: Row(
@@ -46,7 +47,7 @@ class BottomNavigation extends StatelessWidget {
                   Navigator.push(
                     context,
                     CupertinoPageRoute(
-                      builder: (context) => const MeetingsScrean(),
+                      builder: (context) => MeetingsScrean()
                     ),
                   );
                 },
@@ -54,6 +55,11 @@ class BottomNavigation extends StatelessWidget {
               ),
               BottomNavBtn(
                 icon: CupertinoIcons.chat_bubble_2,
+                onTap: () {},
+                isSelected: false,
+              ),
+              BottomNavBtn(
+                icon: CupertinoIcons.person,
                 onTap: () {},
                 isSelected: false,
               ),

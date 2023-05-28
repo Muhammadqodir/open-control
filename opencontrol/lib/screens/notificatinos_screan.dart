@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:opencontrol/api.dart';
 import 'package:opencontrol/constants/constants_colors.dart';
@@ -37,7 +36,6 @@ class _NotificationsPageState extends State<NotificationsPage> {
     }
   }
 
-  
   void selected(int id, String theme) {
     Dialogs.showAlertDialog(context, list[id].title, theme);
   }
@@ -75,8 +73,34 @@ class _NotificationsPageState extends State<NotificationsPage> {
                         child: Padding(
                           padding: const EdgeInsets.only(top: 75),
                           child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: widgetsList),
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: widgetsList.isNotEmpty
+                                ? widgetsList
+                                : [
+                                    const SizedBox(
+                                      height: 12,
+                                    ),
+                                    Center(
+                                      child: Column(
+                                        children: [
+                                          Image.asset(
+                                            "assets/icons/notification.png",
+                                            width: 150,
+                                          ),
+                                          const SizedBox(
+                                            height: 12,
+                                          ),
+                                          Text(
+                                            "Уведомлений нет!",
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .titleMedium,
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                          ),
                         ),
                       ),
                     ],
