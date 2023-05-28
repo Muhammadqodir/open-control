@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:opencontrol/constants/constants_colors.dart';
+import 'package:opencontrol/dialogs.dart';
+import 'package:opencontrol/screens/add_meeting.dart';
 import 'package:opencontrol/screens/home%20page/components/active_user_card.dart';
 import 'package:opencontrol/widgets/action_btn.dart';
 import 'package:opencontrol/widgets/custom_action_bar.dart';
@@ -96,7 +98,14 @@ class _MeetingsScreanState extends State<MeetingsScrean> {
               backBtn: true,
               actinos: [
                 ActionButton(
-                  onTap: () async {},
+                  onTap: () async {
+                    Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                        builder: (context) => const AddMeetingScrean(),
+                      ),
+                    );
+                  },
                   icon: CupertinoIcons.add,
                 )
               ],

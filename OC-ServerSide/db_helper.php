@@ -58,6 +58,23 @@ class DBHelper
     }
   }
 
+  function getNadzor()
+  {
+    $res = [];
+    $sql = "SELECT * FROM `cntrol_organ`";
+
+    if ($result = $this->mysqli->query($sql)) {
+      while ($row = $result->fetch_assoc()) {
+        // $row["destination"] = $this->getDelivery($row["delivery"]);
+        $row["themesData"] = json_decode($row["themes"]);
+        $res[] = $row;
+      }
+      $result->free_result();
+    }
+
+    return $res;
+  }
+
   function login($phone, $password)
   {
     $sql = "SELECT * FROM businesses WHERE phone = '$phone' AND password_hash = '$password'";
@@ -98,7 +115,8 @@ class DBHelper
     }
   }
 
-  function getCurrentDate(){
+  function getCurrentDate()
+  {
     return date("H:i:s d-m-Y");
   }
 

@@ -11,12 +11,14 @@ class CustomActionBar extends StatelessWidget {
     required this.dropShadow,
     required this.actinos,
     required this.backBtn,
+    this.goBack
   });
 
   final title;
   final bool dropShadow;
   final List<Widget> actinos;
   final bool backBtn;
+  final Function()? goBack;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +49,7 @@ class CustomActionBar extends StatelessWidget {
               children: [
                 if (backBtn)
                   ActionButton(
-                    onTap: () async {
+                    onTap: goBack ?? () async {
                       Navigator.pop(context);
                     },
                     icon: CupertinoIcons.back,

@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:opencontrol/models/business.dart';
+import 'package:opencontrol/models/nadzor_org.dart';
 
 class Api {
   Dio session = Dio();
@@ -14,7 +15,11 @@ class Api {
 
   Future<Result<Business>> login(String phone, String password) async {
     Map<String, dynamic> body = <String, dynamic>{};
-    body["phone"] = phone.replaceAll(" ", "").replaceAll("-", "").replaceAll("(", "").replaceAll(")", "");
+    body["phone"] = phone
+        .replaceAll(" ", "")
+        .replaceAll("-", "")
+        .replaceAll("(", "")
+        .replaceAll(")", "");
     body["password"] = password;
     FormData data = FormData.fromMap(body);
 
@@ -36,7 +41,7 @@ class Api {
             token: serializedBody["data"]["token"],
             phone: phone,
           ));
-        }else{
+        } else {
           return Result.error(serializedBody["message"]);
         }
       } else {
@@ -44,6 +49,39 @@ class Api {
       }
     } catch (e, stacktrace) {
       return Result.error("$stacktrace", title: "Error!");
+    }
+  }
+
+  Future<Result<List<Nadzor>>> getNadzor() async {
+    Response response = await session.get(
+      "$apiUrl/get_nadzor.php",
+    );
+    try {
+      List<dynamic> serializedBody = response.data;
+      // print(serializedBody);
+      if (response.statusCode == 200) {
+        List<Nadzor> list = [];
+        for (var element in serializedBody) {
+          print(element["id"]);
+          List<NadzorTheme> themes = [];
+          for (var theme in element["themesData"]) {
+            themes.add(NadzorTheme(theme, int.parse(element["id"])));
+          }
+          list.add(
+            Nadzor(
+              id: int.parse(element["id"]),
+              themes: themes,
+              title: element["name"],
+              web: element["link"],
+            ),
+          );
+        }
+        return Result.success(list);
+      } else {
+        return Result.error(response.data);
+      }
+    } catch (e, stacktrace) {
+      return Result.error("$stacktrace \n\n $e", title: "Error!");
     }
   }
 }

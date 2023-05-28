@@ -17,6 +17,11 @@ const double textSizeLange = 24;
 const double textSizeMedium = 16;
 const double textSizeSmall = 14;
 
+const Color success = Color(0xFF27AE60);
+const Color warning = Color(0xFFE4B90E);
+const Color wait = Color(0xFF666666);
+const Color error = Color(0xFFE74C3C);
+
 final kGradientBoxDecoration = BoxDecoration(
   gradient: LinearGradient(
     colors: [
