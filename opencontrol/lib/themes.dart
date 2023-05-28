@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'constants/constants_colors.dart';
 
-const primaryColor = Color(0xFF830EF7);
+const primaryColor = Color(0xFFF64027);
 const textColorLight = Color(0xFF444444);
 const textColorDark = Color(0xFFFFFFFF);
 
@@ -26,7 +26,7 @@ ThemeData lightTheme = ThemeData(
   primaryColor: primaryColor,
   hintColor: textColorLight.withAlpha(180),
   cardColor: const Color(0xFFC8C8C8),
-  dividerColor: Colors.grey,
+  dividerColor: Colors.grey.withAlpha(100),
   fontFamily: 'Montserrat',
   textTheme: const TextTheme(
     bodySmall: TextStyle(
@@ -80,7 +80,7 @@ ThemeData darkTheme = ThemeData(
   primaryColor: primaryColor,
   hintColor: textColorDark.withAlpha(180),
   cardColor: const Color(0xFF1F1F1F),
-  dividerColor: Colors.grey,
+  dividerColor: Colors.grey.withAlpha(100),
   fontFamily: 'Montserrat',
   textTheme: const TextTheme(
     bodySmall: TextStyle(

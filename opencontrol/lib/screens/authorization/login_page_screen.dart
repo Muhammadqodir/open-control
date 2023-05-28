@@ -1,15 +1,41 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:opencontrol/api.dart';
 import 'package:opencontrol/constants/constants_colors.dart';
+import 'package:opencontrol/dialogs.dart';
+import 'package:opencontrol/models/business.dart';
 import 'package:opencontrol/screens/authorization/register_page_screen.dart';
-import 'package:opencontrol/screens/home%20page/home_page_screen.dart';
+import 'package:opencontrol/screens/splash_screan.dart';
 import 'package:opencontrol/widgets/custom_textfield.dart';
 import 'package:opencontrol/widgets/primary_button.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../widgets/on_tap_scale_and_fade.dart';
 
 class LoginPageScreen extends StatelessWidget {
-  const LoginPageScreen({super.key});
+  LoginPageScreen({super.key});
+
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  Future<void> login(BuildContext context) async {
+    String phone = phoneController.text;
+    String password = passwordController.text;
+    print(phone);
+    Result<Business> res = await Api("").login(phone, password);
+    if (res.isSuccess) {
+      SharedPreferences preferences = await SharedPreferences.getInstance();
+      await preferences.setBool("isLogin", true);
+      await preferences.setString("token", res.data!.token);
+      Navigator.of(context).pushReplacement(
+        CupertinoPageRoute(
+          builder: (context) => const SplashScreen(),
+        ),
+      );
+    } else {
+      Dialogs.showAlertDialog(context, "Ошибка", res.message);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +43,7 @@ class LoginPageScreen extends StatelessWidget {
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Stack(
         children: [
-          Expanded(
+          Positioned(
             child: Container(
               decoration: gradientBG,
             ),
@@ -31,7 +57,8 @@ class LoginPageScreen extends StatelessWidget {
                     children: [
                       const SizedBox(height: 48),
                       Image.asset(
-                        "assets/images/logo.png",
+                        "assets/images/logo_lg.png",
+                        width: 150,
                         color: Theme.of(context).textTheme.bodyLarge!.color,
                       ),
                       const SizedBox(height: 12),
@@ -41,6 +68,7 @@ class LoginPageScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 32),
                       CustomTextField(
+                        controller: phoneController,
                         hintText: 'Номер телефона',
                         textInputType: TextInputType.phone,
                         maskTextInputFormatter: MaskTextInputFormatter(
@@ -50,24 +78,26 @@ class LoginPageScreen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 12),
-                      const CustomTextField(
+                      CustomTextField(
+                        controller: passwordController,
                         hintText: 'Пароль',
                         isPassword: true,
-                        textInputType: TextInputType.phone,
                       ),
                       const SizedBox(height: 20),
                       PrimaryButton(
-                        onTap: () {
-                          Route route = CupertinoPageRoute(
-                              builder: (context) => const HomePageScreen());
-                          Navigator.push(context, route);
+                        onTap: () async {
+                          await login(context);
                         },
                         text: 'Вход',
+                      ),
+                      const SizedBox(
+                        height: 12,
                       ),
                       OnTapScaleAndFade(
                         onTap: () {
                           Route route = CupertinoPageRoute(
-                              builder: (context) => const RegisterPageScreen());
+                            builder: (context) => RegisterPageScreen(),
+                          );
                           Navigator.push(context, route);
                         },
                         child: Padding(
@@ -92,6 +122,9 @@ class LoginPageScreen extends StatelessWidget {
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
                         ],
+                      ),
+                      const SizedBox(
+                        height: 12,
                       )
                     ],
                   ),
