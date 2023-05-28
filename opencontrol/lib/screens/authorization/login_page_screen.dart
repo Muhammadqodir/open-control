@@ -6,8 +6,10 @@ import 'package:opencontrol/constants/constants_colors.dart';
 import 'package:opencontrol/dialogs.dart';
 import 'package:opencontrol/models/business.dart';
 import 'package:opencontrol/screens/authorization/register_page_screen.dart';
+import 'package:opencontrol/screens/splash_screan.dart';
 import 'package:opencontrol/widgets/custom_textfield.dart';
 import 'package:opencontrol/widgets/primary_button.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../widgets/on_tap_scale_and_fade.dart';
 
 class LoginPageScreen extends StatelessWidget {
@@ -21,9 +23,16 @@ class LoginPageScreen extends StatelessWidget {
     String password = passwordController.text;
     print(phone);
     Result<Business> res = await Api("").login(phone, password);
-    if(res.isSuccess){
-      Dialogs.showAlertDialog(context, "Success", res.data!.toString());
-    }else{
+    if (res.isSuccess) {
+      SharedPreferences preferences = await SharedPreferences.getInstance();
+      await preferences.setBool("isLogin", true);
+      await preferences.setString("token", res.data!.token);
+      Navigator.of(context).pushReplacement(
+        CupertinoPageRoute(
+          builder: (context) => const SplashScreen(),
+        ),
+      );
+    } else {
       Dialogs.showAlertDialog(context, "Ошибка", res.message);
     }
   }
@@ -72,7 +81,6 @@ class LoginPageScreen extends StatelessWidget {
                         controller: passwordController,
                         hintText: 'Пароль',
                         isPassword: true,
-                        textInputType: TextInputType.phone,
                       ),
                       const SizedBox(height: 20),
                       PrimaryButton(
@@ -113,6 +121,9 @@ class LoginPageScreen extends StatelessWidget {
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
                         ],
+                      ),
+                      const SizedBox(
+                        height: 12,
                       )
                     ],
                   ),

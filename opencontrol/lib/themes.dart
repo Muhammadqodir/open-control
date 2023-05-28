@@ -26,7 +26,7 @@ ThemeData lightTheme = ThemeData(
   primaryColor: primaryColor,
   hintColor: textColorLight.withAlpha(180),
   cardColor: const Color(0xFFC8C8C8),
-  dividerColor: Colors.grey,
+  dividerColor: Colors.grey.withAlpha(100),
   fontFamily: 'Montserrat',
   textTheme: const TextTheme(
     bodySmall: TextStyle(
@@ -80,7 +80,7 @@ ThemeData darkTheme = ThemeData(
   primaryColor: primaryColor,
   hintColor: textColorDark.withAlpha(180),
   cardColor: const Color(0xFF1F1F1F),
-  dividerColor: Colors.grey,
+  dividerColor: Colors.grey.withAlpha(100),
   fontFamily: 'Montserrat',
   textTheme: const TextTheme(
     bodySmall: TextStyle(

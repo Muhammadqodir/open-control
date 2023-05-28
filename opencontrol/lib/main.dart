@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:opencontrol/screens/authorization/login_page_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:opencontrol/cubit/theme_cubit.dart';
+import 'package:opencontrol/screens/splash_screan.dart';
 import 'package:opencontrol/themes.dart';
 
 void main() {
@@ -9,15 +11,17 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: lightTheme,
-      darkTheme: darkTheme,
-      themeMode: ThemeMode.system,
-      home: LoginPageScreen(),
+    return BlocProvider(
+      create: (context) => ThemeCubit(),
+      child: BlocBuilder<ThemeCubit, ThemeState>(builder: (context, state)=>MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: lightTheme,
+        darkTheme: darkTheme,
+        themeMode: state.mode,
+        home: const SplashScreen(),
+      ),),
     );
   }
 }

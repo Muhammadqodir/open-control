@@ -18,12 +18,13 @@ const double textSizeMedium = 16;
 const double textSizeSmall = 14;
 
 final kGradientBoxDecoration = BoxDecoration(
-  gradient: const LinearGradient(colors: [
-    Color.fromARGB(63, 241, 242, 246),
-    Color.fromARGB(49, 241, 242, 246),
-    Color.fromARGB(21, 201, 198, 198),
-  ]),
-  borderRadius: BorderRadius.circular(22),
+  gradient: LinearGradient(
+    colors: [
+      Colors.black,
+      Colors.black.withAlpha(100),
+    ],
+  ),
+  borderRadius: BorderRadius.circular(23),
 );
 
 final gradientBG = BoxDecoration(

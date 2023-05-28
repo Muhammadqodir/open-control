@@ -8,13 +8,14 @@ class RecentUserCard extends StatelessWidget {
   final String text;
   final String time;
   final int countMessage;
-  const RecentUserCard(
-      {super.key,
-      required this.image,
-      required this.name,
-      required this.text,
-      required this.time,
-      required this.countMessage});
+  const RecentUserCard({
+    super.key,
+    required this.image,
+    required this.name,
+    required this.text,
+    required this.time,
+    required this.countMessage,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +24,7 @@ class RecentUserCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(0.8),
         child: Container(
-          padding:
-              const EdgeInsets.only(top: 12, bottom: 12, left: 10, right: 19),
+          padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
             color: const Color(0xff1F1F1F),
             borderRadius: BorderRadius.circular(22),
@@ -52,37 +52,6 @@ class RecentUserCard extends StatelessWidget {
                     text,
                     style: const TextStyle(
                         color: Colors.white, fontWeight: FontWeight.w600),
-                  ),
-                ],
-              ),
-              Expanded(child: Container()),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Text(
-                    time,
-                    style: const TextStyle(
-                      color: Color(0xff7C01F6),
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    width: 18,
-                    height: 18,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                        color: const Color(0xff7C01F6),
-                        borderRadius: BorderRadius.circular(50)),
-                    child: Text(
-                      countMessage.toString(),
-                      style: const TextStyle(
-                          fontSize: 10,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600),
-                    ),
                   ),
                 ],
               ),
