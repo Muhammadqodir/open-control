@@ -38,7 +38,8 @@ class RegisterPageScreen extends StatelessWidget {
                     children: [
                       const SizedBox(height: 48),
                       Image.asset(
-                        "assets/images/logo.png",
+                        "assets/images/logo_lg.png",
+                        width: 150,
                         color: Theme.of(context).textTheme.bodyLarge!.color,
                       ),
                       const SizedBox(

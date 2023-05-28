@@ -15,13 +15,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => ThemeCubit(),
-      child: BlocBuilder<ThemeCubit, ThemeState>(builder: (context, state)=>MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: lightTheme,
-        darkTheme: darkTheme,
-        themeMode: state.mode,
-        home: const SplashScreen(),
-      ),),
+      child: BlocBuilder<ThemeCubit, ThemeState>(
+        builder: (context, state) => MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: lightTheme,
+          darkTheme: darkTheme,
+          themeMode: state.mode,
+          home: const SplashScreen(),
+        ),
+      ),
     );
   }
 }

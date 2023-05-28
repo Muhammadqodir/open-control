@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:opencontrol/themes.dart';
 
 class PrimaryCard extends StatelessWidget {
   final String text;
@@ -15,12 +16,12 @@ class PrimaryCard extends StatelessWidget {
             vertical: 6,
           ),
           decoration: BoxDecoration(
-            gradient: const LinearGradient(
+            gradient: LinearGradient(
               begin: Alignment.centerLeft,
               end: Alignment.topRight,
               colors: [
-                Color(0xff7C01F6),
-                Color(0xffB66DFF),
+                primaryColor,
+                primaryColor.withAlpha(200),
               ],
             ),
             borderRadius: BorderRadius.circular(28),

@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:opencontrol/constants/constants_colors.dart';
@@ -29,40 +27,37 @@ class _HomePageScreenState extends State<HomePageScreen> {
               decoration: gradientBG,
             ),
           ),
-          SafeArea(
-            child: Column(
-              children: [
-                CustomActionBar(
-                  dropShadow: dropShadow,
-                ),
-                Expanded(
-                  child: NotificationListener<ScrollUpdateNotification>(
-                    onNotification: (notification) {
-                      if (notification.metrics.pixels > 0 && !dropShadow) {
-                        setState(() {
-                          dropShadow = true;
-                        });
-                      }
-                      if (notification.metrics.pixels <= 0 && dropShadow) {
-                        setState(() {
-                          dropShadow = false;
-                        });
-                      }
-                      return true;
-                    },
-                    child: ListView(
-                      children: [
-                        Padding(
+          Column(
+            children: [
+              Expanded(
+                child: NotificationListener<ScrollUpdateNotification>(
+                  onNotification: (notification) {
+                    if (notification.metrics.pixels > 0 && !dropShadow) {
+                      setState(() {
+                        dropShadow = true;
+                      });
+                    }
+                    if (notification.metrics.pixels <= 0 && dropShadow) {
+                      setState(() {
+                        dropShadow = false;
+                      });
+                    }
+                    return true;
+                  },
+                  child: ListView(
+                    children: [
+                      SafeArea(
+                        child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 12),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               const SizedBox(
-                                height: 12,
+                                height: 80,
                               ),
                               const PrimaryCard(
                                 text: 'Запланированные встречи',
-                                icon: Icons.notifications,
+                                icon: CupertinoIcons.circle_grid_hex_fill,
                               ),
                               const SizedBox(
                                 height: 13,
@@ -87,7 +82,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                               ),
                               const PrimaryCard(
                                 text: 'Сервисы',
-                                icon: CupertinoIcons.circle_grid_hex_fill,
+                                icon: CupertinoIcons.search,
                               ),
                               const SizedBox(
                                 height: 12,
@@ -95,33 +90,79 @@ class _HomePageScreenState extends State<HomePageScreen> {
                               CustomCard(
                                 onTap: () {},
                                 image: const AssetImage(
-                                  'assets/images/user2.png',
+                                  'assets/icons/megaphone.png',
                                 ),
-                                title: 'Alexander',
-                                text: 'Hey, what`s up?',
+                                title: 'Обязательные требования',
+                                text:
+                                    'Раздел с актуальной информацией о ведомственных нормативных правовых актах',
+                              ),
+                              CustomCard(
+                                onTap: () {},
+                                image: const AssetImage(
+                                  'assets/icons/folder.png',
+                                ),
+                                title: 'Нормативные правовые акты',
+                                text:
+                                    'Раздел с актуальной информацией о ведомственных нормативных правовых актах',
+                              ),
+                              CustomCard(
+                                onTap: () {},
+                                image: const AssetImage(
+                                  'assets/icons/sheild.png',
+                                ),
+                                title: 'Органы контроля',
+                                text:
+                                    'Подробная информация о контрольно-надзорных органах',
+                              ),
+                              CustomCard(
+                                onTap: () {},
+                                image: const AssetImage(
+                                  'assets/icons/folder.png',
+                                ),
+                                title: 'Нормативные правовые акты',
+                                text:
+                                    'Раздел с актуальной информацией о ведомственных нормативных правовых актах',
+                              ),
+                              CustomCard(
+                                onTap: () {},
+                                image: const AssetImage(
+                                  'assets/icons/sheild.png',
+                                ),
+                                title: 'Органы контроля',
+                                text:
+                                    'Подробная информация о контрольно-надзорных органах',
+                              ),
+                              const SizedBox(
+                                height: 100,
                               ),
                             ],
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
-              ],
+              ),
+            ],
+          ),
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: CustomActionBar(
+              dropShadow: dropShadow,
+              title: "БизнесНадзор",
+              actinos: false,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(25),
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(
-                    sigmaX: 9.0,
-                    sigmaY: 9.0,
-                  ),
-                  child: const BottomNavigation(),
+          const Positioned(
+            child: SafeArea(
+              top: false,
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: BottomNavigation(),
                 ),
               ),
             ),

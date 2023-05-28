@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:opencontrol/constants/constants_colors.dart';
 import 'package:opencontrol/screens/authorization/login_page_screen.dart';
 import 'package:opencontrol/screens/home%20page/home_page_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -42,6 +43,11 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: Stack(
         children: [
+          Positioned(
+            child: Container(
+              decoration: gradientBG,
+            ),
+          ),
           SafeArea(
             child: Center(
               child: Padding(
@@ -55,6 +61,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     Image.asset(
                       "assets/images/logo_lg.png",
                       width: 180,
+                      color: Theme.of(context).textTheme.titleLarge!.color,
                     ),
                     const SizedBox(
                       height: 12,
@@ -69,8 +76,8 @@ class _SplashScreenState extends State<SplashScreen> {
                     const SizedBox(
                       height: 32,
                     ),
-                    const CupertinoActivityIndicator(
-                      color: Colors.white,
+                    CupertinoActivityIndicator(
+                      color: Theme.of(context).textTheme.titleLarge!.color,
                       radius: 14,
                     ),
                     const SizedBox(

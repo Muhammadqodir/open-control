@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'constants/constants_colors.dart';
 
-const primaryColor = Color(0xFF830EF7);
+const primaryColor = Color(0xFFF64027);
 const textColorLight = Color(0xFF444444);
 const textColorDark = Color(0xFFFFFFFF);
 
