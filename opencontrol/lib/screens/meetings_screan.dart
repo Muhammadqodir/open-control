@@ -71,6 +71,7 @@ class _MeetingsScreanState extends State<MeetingsScrean> {
                                     ActiveUserCard(
                                       onTap: () {},
                                       name: 'Muhammadqodir Abduvoitov',
+                                      dateTime: 'Muhammadqodir Abduvoitov',
                                       image: const NetworkImage(
                                         'https://mrrk.ru/wp-content/uploads/2022/07/CUtAw2xa.jpg',
                                       ),

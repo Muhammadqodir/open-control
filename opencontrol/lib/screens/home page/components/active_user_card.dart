@@ -6,6 +6,7 @@ import 'package:opencontrol/widgets/on_tap_scale_and_fade.dart';
 
 class ActiveUserCard extends StatelessWidget {
   final String name;
+  final String dateTime;
   final ImageProvider image;
   final bool isAccepted;
   final Function() onTap;
@@ -15,6 +16,7 @@ class ActiveUserCard extends StatelessWidget {
     required this.name,
     required this.image,
     required this.onTap,
+    required this.dateTime,
     this.isAccepted = false,
   });
 
@@ -50,6 +52,13 @@ class ActiveUserCard extends StatelessWidget {
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.titleSmall,
+                ),
+                Text(
+                  dateTime,
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.titleSmall!.copyWith(fontSize: 10),
                 ),
               ],
             ),

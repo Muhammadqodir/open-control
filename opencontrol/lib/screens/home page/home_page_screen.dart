@@ -81,15 +81,25 @@ class _HomePageScreenState extends State<HomePageScreen> {
                                 height: 13,
                               ),
                               SizedBox(
-                                height: 150,
+                                height: 155,
                                 child: ListView(
                                   scrollDirection: Axis.horizontal,
                                   children: [
                                     ActiveUserCard(
                                       onTap: () {},
-                                      name: 'Muhammadqodir Abduvoitov',
+                                      name: 'Анна',
+                                      dateTime: '29.05.2023\n08:00',
                                       image: const NetworkImage(
-                                        'https://mrrk.ru/wp-content/uploads/2022/07/CUtAw2xa.jpg',
+                                        'https://randus.org/photos/w/e7d3d9819d858b83.jpg',
+                                      ),
+                                    ),
+                                    ActiveUserCard(
+                                      onTap: () {},
+                                      name: 'Олег',
+                                      isAccepted: true,
+                                      dateTime: '30.05.2023\n16:00',
+                                      image: const NetworkImage(
+                                        'https://randus.org/photos/m/f3fdfcc0ff640414.jpg',
                                       ),
                                     ),
                                   ],
@@ -168,7 +178,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                   width: 12,
                 ),
                 ActionButton(
-                  indicator: notificationIndicator,
+                  indicator: true,
                   onTap: () async {
                     Navigator.push(
                       context,
